@@ -1,6 +1,7 @@
 body {
     padding: 21px 91px;
-    background-color: #00155f;
+    background-color: #00155f; 
+    font-family: serif;
 }
 .head {
     display: flex;
@@ -48,3 +49,35 @@ span {
     background-color: #910d5678;
     padding: 38px 74px;
 }
+
+.divbtn {
+    text-align-last: center;
+    padding: 11px;
+}
+#btn {
+    width: 50%;
+    color: white;
+    background-color: #910d56;
+    border: none;
+    font-size: 28px;
+    box-shadow: 0px 0px 10px #ffffff6e;
+    border-radius: 4px;
+    font-family: serif;
+}
+
+table#table3 {
+    
+    color: white ;
+    width: 100%;
+    text-align: -webkit-center;
+    height: 33%;
+    background-color: #2c3659;
+    border-radius: 4px;
+    margin: 12px 0px;
+}
+td {
+    text-align: center;
+}
+
+  
+    
