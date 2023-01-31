@@ -140,6 +140,10 @@
     </div>
 </form>
 </div>
+
+
+
+<!-- CODE PHP -->
 <?php
    
     
@@ -178,8 +182,9 @@
 
         //morocco
         
+        //check if the inputs empty or not
         if ((empty($_POST['morocco1']) && empty($_POST['croatia1'])) || (empty($_POST['belgium1']) && empty($_POST['canada1'])) || (empty($_POST['belgium2']) && empty($_POST['morocco2'])) || (empty($_POST['croatia2']) && empty($_POST['canada2'])) || (empty($_POST['croatia3']) && empty($_POST['belgium3'])) || (empty($_POST['canada3']) && empty($_POST['morocco3']))) {
-            die("<script>alert('enter the at least one goal in the match')</script>");
+            die();
         }else{
             $morroccoFirstMatch = $_POST["morocco1"];
             $morroccoSecondMatch = $_POST["morocco2"];
@@ -237,7 +242,7 @@
                 $gfCanada += $canadaFirstMatch;
                 $gfBelgium += $belgiumFirstMatch;
     
-                $gcCanada1 += $belgiumFirstMatch;
+                $gcCanada += $belgiumFirstMatch;
                 $gcBelgium += $canadaFirstMatch;
             }elseif($canadaFirstMatch == $belgiumFirstMatch){
                 $ptsCanada += 1;
@@ -369,41 +374,17 @@
             }
          
         }
-        // }
+
+
         
         //add the point in arrays
 
-        //table teams and points
-
-        // $placement = array(
-        //     array("Morocco", $ptsMorocco, $ganMorocco, $empMorocco, $perMorocco, $gfMorocco, $gcMorocco),
-        //     array("Croatia", $ptsCroatia, $ganCroatia, $empCroatia, $perCroatia, $gfCroatia, $gcCroatia),
-        //     array("Belgium", $ptsBelgium, $ganBelgium, $empBelgium, $perBelgium, $gfBelgium, $gcBelgium),
-        //     array("Canada", $ptsCanada, $ganCanada, $empCanada, $perCanada, $gfCanada, $gcCanada)
-        // );
-        $tablePoints = array("Morocco" => $ptsMorocco, "Croatia" => $ptsCroatia, "Belgium" => $ptsBelgium, "Canada" => $ptsCanada);
-        arsort($tablePoints);
-
-        //table teams time wons
-        $tableWon = array("Morocco" => $ganMorocco, "Croatia" => $ganCroatia, "Belgium" => $ganBelgium, "Canada" => $ganCanada);
-        arsort($tableWon);
-
-        //table teams time equals
-        $tableEqual = array("Morocco" => $empMorocco, "Croatia" => $empCroatia, "Belgium" => $empBelgium, "Canada" => $empCanada);
-        arsort($tableEqual);
-
-        //table teams time lost
-        $tableLost = array("Morocco" => $perMorocco, "Croatia" => $perCroatia, "Belgium" => $perBelgium, "Canada" => $perCanada);
-        asort($tableLost);
-
-        //table teams of gooals =mark=
-        $tableGoals = array("Morocco" => $gfMorocco, "Croatia" => $gfCroatia, "Belgium" => $gfBelgium, "Canada" => $gfCanada);
-        arsort($tableGoals);
-
-        //table teams of gooals in
-        $tableGoalsIn = array("Morocco" => $gcMorocco, "Croatia" => $gcCroatia, "Belgium" => $gcBelgium, "Canada" => $gcCanada);
-        asort($tableGoalsIn);
-  
+        $groupe = array(
+            array("Morocco", $ptsMorocco, 3 , $ganMorocco, $empMorocco, $perMorocco, $gfMorocco, $gcMorocco),
+            array("Croatia", $ptsCroatia, 3 , $ganCroatia, $empCroatia, $perCroatia, $gfCroatia, $gcCroatia),
+            array("Belgium", $ptsBelgium, 3,$ganBelgium, $empBelgium, $perBelgium, $gfBelgium, $gcBelgium),
+            array("Canada", $ptsCanada, 3,$ganCanada, $empCanada, $perCanada, $gfCanada, $gcCanada)
+        );
 ?>
 
     <div class="table">
@@ -424,19 +405,15 @@
             <tbody>
 
             <?php 
-                for($row = 0; $row < count($tablePoints); $row++){
+                for($i = 0; $i < count($groupe); $i++){
                     echo "<tr>";
-                        echo '<th scope="row">' . $row+1 . '</th>';
-                        echo "<td>" . array_keys($tablePoints)[$row] . "</td>"; 
-                        echo "<td>" . array_values($tablePoints)[$row] . "</td>"; 
-                        echo "<td> 3 </td>"; 
-                        echo "<td>" . array_values($tableWon)[$row] . "</td>"; 
-                        echo "<td>" . array_values($tableEqual)[$row] . "</td>"; 
-                        echo "<td>" . array_values($tableLost)[$row] . "</td>"; 
-                        echo "<td>" . array_values($tableGoals)[$row] . "</td>"; 
-                        echo "<td>" . array_values($tableGoalsIn)[$row] . "</td>"; 
-                    echo "</tr>";
+                    echo '<th scope="row">' . $i+1 . '</th>';
+                    for($j = 0; $j < count($groupe[$i]); $j++){
 
+                        echo  "<td class=''>".  $groupe[$i][$j] ."</td>"; 
+                        
+                    }
+                    echo "</tr>";
                 }
             
             ?>
