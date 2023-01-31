@@ -54,7 +54,7 @@ span {
     text-align-last: center;
     padding: 11px;
 }
-#btn {
+input#btn {
     width: 50%;
     color: white;
     background-color: #910d56;
@@ -65,7 +65,7 @@ span {
     font-family: serif;
 }
 
-table#table3 {
+table {
     
     color: white ;
     width: 100%;
@@ -80,4 +80,8 @@ td {
 }
 
   
-    
+
+  
+  
+  
+        
