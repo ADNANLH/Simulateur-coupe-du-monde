@@ -1,0 +1,50 @@
+body {
+    padding: 21px 91px;
+    background-color: #00155f;
+}
+.head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 19px 54px;
+    color: white;
+    background-color: #910d56;
+}
+.matches {
+    margin-bottom: 16px;
+    box-shadow: 0px 0px 16px #ff70bfb8;
+}
+.match {
+    display: flex;
+    flex-direction: row;
+    padding: 15px 64px;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    background-color: #54535387;
+}
+.head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+img {
+    width: 6%;
+    height: 1%;
+}
+input[type="text"] {
+    width: 27px;
+    height: 44px;
+    border: none;
+    background-color: #9f1963;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+}
+span {
+    align-self: center;
+}
+.inputs {
+    background-color: #910d5678;
+    padding: 38px 74px;
+}
