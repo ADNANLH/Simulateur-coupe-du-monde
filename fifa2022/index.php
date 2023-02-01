@@ -7,10 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style2.css">
     <title>Document</title>
-</head> 
+</head>
 <body>
-
-
 
 
 <!-- onsubmit="return false" -->
@@ -136,7 +134,11 @@
             <h4>MOROCCO</h4>
         </div>
         
-        <input type="submit" value="result" name="submit" id="submit" >
+    </div>
+
+    <div class="divbtn">
+
+        <input type="submit" value="Result" name="submit" id="btn" >
     </div>
 </form>
 </div>
@@ -374,21 +376,53 @@
             }
          
         }
+        $diffMorocco = $gfMorocco - $gcMorocco;
+        $diffCroatia = $gfCroatia - $gcCroatia;
+        $diffBelgium = $gfBelgium - $gcBelgium;
+        $diffCanada = $gfCanada - $gcCanada;
 
 
         
         //add the point in arrays
 
-        $groupe = array(
-            array("Morocco", $ptsMorocco, 3 , $ganMorocco, $empMorocco, $perMorocco, $gfMorocco, $gcMorocco),
-            array("Croatia", $ptsCroatia, 3 , $ganCroatia, $empCroatia, $perCroatia, $gfCroatia, $gcCroatia),
-            array("Belgium", $ptsBelgium, 3,$ganBelgium, $empBelgium, $perBelgium, $gfBelgium, $gcBelgium),
-            array("Canada", $ptsCanada, 3,$ganCanada, $empCanada, $perCanada, $gfCanada, $gcCanada)
-        );
+
+        $groupe = [
+            "0" => ["Morocco", $ptsMorocco, 3 , $ganMorocco, $empMorocco, $perMorocco, $gfMorocco, $gcMorocco, $diffMorocco],
+            "1" => ["Croatia", $ptsCroatia, 3 , $ganCroatia, $empCroatia, $perCroatia, $gfCroatia, $gcCroatia, $diffCroatia],
+            "2" => ["Belgium", $ptsBelgium, 3,$ganBelgium, $empBelgium, $perBelgium, $gfBelgium, $gcBelgium, $diffBelgium],
+            "3" => ["Canada", $ptsCanada, 3,$ganCanada, $empCanada, $perCanada, $gfCanada, $gcCanada, $diffCanada]
+            ];
+
+        //sorting the teams by the points after by diff after by goals
+        
+        function sorting($a, $b) {
+            if ($a[1] < $b[1]) {
+                return 1 ;
+            }elseif($a[1] > $b[1]){
+                return -1 ;
+            }elseif($a[1] == $b[1]){
+                if ($a[8] < $b[8]) {
+                    return 1 ;
+                }elseif($a[8] > $b[8]){
+                    return -1 ;
+                }elseif($a[8] == $b[8]){
+                    if ($a[6] < $b[6]) {
+                        return 1 ;
+                    }elseif($a[6] > $b[6]){
+                        return -1 ;
+                    }elseif($a[6] == $b[6]){
+                        return 0 ;
+                    }
+                }
+            } 
+        }
+        usort($groupe, 'sorting');
+        
 ?>
 
+ <!-- TABLE -->
     <div class="table">
-        <table>
+        <table id="table3">
             <thead>
                 <tr>
                     <th>#</th>
@@ -400,28 +434,25 @@
                     <th>PER.</th>
                     <th>G.F.</th>
                     <th>G.C.</th>
+                    <th>+/-</th>
                 </tr>
             </thead>
             <tbody>
+                <?php 
+                    for($i = 0; $i < count($groupe); $i++){
+                        echo "<tr>";
+                        echo '<th scope="row">' . $i+1 . '</th>';
+                        for($j = 0; $j < count($groupe[$i]); $j++){
 
-            <?php 
-                for($i = 0; $i < count($groupe); $i++){
-                    echo "<tr>";
-                    echo '<th scope="row">' . $i+1 . '</th>';
-                    for($j = 0; $j < count($groupe[$i]); $j++){
-
-                        echo  "<td class=''>".  $groupe[$i][$j] ."</td>"; 
-                        
-                    }
-                    echo "</tr>";
-                }
-            
-            ?>
-                
+                            echo  "<td class=''>".  array_values($groupe[$i])[$j] ."</td>"; 
+                            
+                        }
+                        echo "</tr>";
+                    }   
+                ?>     
             </tbody>
         </table>
     </div>
 
-    
 </body>
 </html>
