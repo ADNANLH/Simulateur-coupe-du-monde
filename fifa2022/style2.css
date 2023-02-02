@@ -1,7 +1,11 @@
 body {
     padding: 21px 91px;
-    background-color: #00155f; 
+    background-color: #00155f;
     font-family: serif;
+    color: white;
+    background-image: url('./ball_2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .head {
     display: flex;
@@ -9,11 +13,11 @@ body {
     justify-content: space-around;
     padding: 19px 54px;
     color: white;
-    background-color: #910d56;
+    background-color: #ba126fe0;
 }
 .matches {
     margin-bottom: 16px;
-    box-shadow: 0px 0px 16px #ff70bfb8;
+    box-shadow: 7px 13px 46px #1b41dc;
 }
 .match {
     display: flex;
@@ -22,7 +26,7 @@ body {
     justify-content: space-around;
     align-items: center;
     color: white;
-    background-color: #54535387;
+    background-color: #023474fa;
 }
 .head {
     display: flex;
@@ -33,20 +37,20 @@ img {
     width: 6%;
     height: 1%;
 }
-input[type="text"] {
-    width: 27px;
-    height: 44px;
+input[type="number"] {
+    background-color: #00000026;
     border: none;
-    background-color: #9f1963;
-    color: white;
-    font-size: 30px;
     text-align: center;
+    font-size: 16px;
+    width: 95px;
+    color: #fff7e8;
+    font-family: monospace;
 }
 span {
     align-self: center;
 }
 .inputs {
-    background-color: #910d5678;
+    background-color: #023474;
     padding: 38px 74px;
 }
 
@@ -60,20 +64,20 @@ input#btn {
     background-color: #910d56;
     border: none;
     font-size: 28px;
-    box-shadow: 0px 0px 10px #ffffff6e;
+    box-shadow: 7px 13px 49px #1236b7;
     border-radius: 4px;
     font-family: serif;
 }
 
 table {
-    
-    color: white ;
+    color: white;
     width: 100%;
     text-align: -webkit-center;
     height: 33%;
-    background-color: #2c3659;
+    background-color: #7670734a;
     border-radius: 4px;
     margin: 12px 0px;
+    box-shadow: 7px 13px 49px #1236b7;
 }
 td {
     text-align: center;
